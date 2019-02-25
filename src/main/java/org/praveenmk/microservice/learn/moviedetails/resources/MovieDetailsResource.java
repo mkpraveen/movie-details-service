@@ -33,6 +33,7 @@ public class MovieDetailsResource {
         List<MovieDetails> movieDetailsList = new ArrayList<>();
         movieDetailsList.add(new MovieDetails(1, "Movie One", "Movie One Description"));
         movieDetailsList.add(new MovieDetails(2, "Movie Two", "Movie Two Description"));
+        movieDetailsList.add(new MovieDetails(2, "Movie Two - 1 ", "Movie Two Description - 1 "));
 
         return movieDetailsList;
     }
