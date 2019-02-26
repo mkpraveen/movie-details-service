@@ -1,6 +1,14 @@
 package org.praveenmk.microservice.learn.moviedetails.model;
 
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+
+@Entity
 public class MovieDetails {
+
+    @Id
+    @GeneratedValue
     private long movieId;
     private String movieName;
     private String movieDescription;
@@ -11,7 +19,14 @@ public class MovieDetails {
         this.movieDescription = movieDescription;
     }
 
+    public MovieDetails(String movieName, String movieDescription) {
+        super();
+        this.movieName = movieName;
+        this.movieDescription = movieDescription;
+    }
+
     public MovieDetails() {
+        super();
     }
 
     public long getMovieId() {
@@ -36,5 +51,14 @@ public class MovieDetails {
 
     public void setMovieDescription(String movieDescription) {
         this.movieDescription = movieDescription;
+    }
+
+    @Override
+    public String toString() {
+        return "MovieDetails{" +
+                "movieId=" + movieId +
+                ", movieName='" + movieName + '\'' +
+                ", movieDescription='" + movieDescription + '\'' +
+                '}';
     }
 }
