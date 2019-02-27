@@ -59,12 +59,12 @@ public class MovieDetailsController {
     }
 
     @RequestMapping(value = "/jpamovies", method = RequestMethod.PATCH)
-    public ResponseEntity<MovieDetails> updateMovieDetails(MovieDetails movie) throws MovieServiceException {
+    public ResponseEntity<MovieDetails> updateMovieDetails(@RequestBody MovieDetails movie) throws MovieServiceException {
         logger.info("Attempting to update movie :" + movie);
         MovieDetails movieToUpdate = movieServiceImpl.getMovieDetailsById(movie.getMovieId());
 
-        if(null != movie && movie.getMovieId() > 0) {
-            return new ResponseEntity<MovieDetails>(movieServiceImpl.saveMovieDetails(movieToUpdate), HttpStatus.OK);
+        if(null != movieToUpdate && movieToUpdate.getMovieId() > 0) {
+            return new ResponseEntity<MovieDetails>(movieServiceImpl.saveMovieDetails(movie), HttpStatus.OK);
         } else {
             throw new MovieServiceException("Movie Details not found");
         }
